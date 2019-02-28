@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/btn_reset"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:onClick="onBtnClick"
+        android:text="洗牌"/>
+
+
+
+    <Button
+        android:id="@+id/btn_switch"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:onClick="onBtnClick"
+        android:text="洗牌动画2"/>
+
+    <Button
+        android:id="@+id/btn_circle"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:onClick="onBtnClick"
+        android:text="圆形"/>
+
+    <Button
+        android:id="@+id/btn_circle_scroll"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:onClick="onBtnClick"
+        android:text="圆形滚轮"/>
+
+    <Button
+        android:id="@+id/btn_circle_scroll2"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:onClick="onBtnClick"
+        android:text="圆形滚轮"/>
+
+</LinearLayout>

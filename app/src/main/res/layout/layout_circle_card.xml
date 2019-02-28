@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/layout_tarot_decode"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="20dp"
+        android:background="#CCC"
+        android:visibility="invisible">
+
+        <View
+            android:id="@+id/right_top_point"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="60dp"
+            android:layout_marginTop="60dp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/tarot_choose_view"
+        android:layout_width="@dimen/card_width"
+        android:layout_height="@dimen/card_height"
+        android:layout_gravity="center"
+        android:background="#ff2d55"
+        android:visibility="invisible">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="塔罗牌哈哈哈"
+            android:textColor="#222"
+            android:textSize="16dp" />
+
+    </RelativeLayout>
+
+    <FrameLayout
+        android:id="@+id/outer_card_view"
+        android:layout_width="320dp"
+        android:layout_height="440dp"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_marginBottom="-250dp">
+
+        <View
+            android:id="@+id/card_view"
+            android:layout_width="@dimen/card_width"
+            android:layout_height="@dimen/card_height"
+            android:background="@mipmap/tarot" />
+    </FrameLayout>
+</FrameLayout>

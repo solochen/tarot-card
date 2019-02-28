@@ -1,0 +1,5 @@
+<resources>
+
+    <dimen name="card_width">160dp</dimen>
+    <dimen name="card_height">220dp</dimen>
+</resources>
