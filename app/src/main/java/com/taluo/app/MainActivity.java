@@ -15,19 +15,13 @@ public class MainActivity extends Activity {
 
     public void onBtnClick(View view) {
         switch (view.getId()) {
-            case R.id.btn_reset:
+            case R.id.btn_tarot_anim_1:
                 TarotAnimActivity.start(this);
                 break;
-            case R.id.btn_circle_scroll:
-                CircleCardActivity.start(this);
-                break;
-            case R.id.btn_switch:
+            case R.id.btn_tarot_anim_2:
                 TarotAnimSwitchActivity.start(this);
                 break;
-            case R.id.btn_circle:
-                CircleActivity.start(this);
-                break;
-            case R.id.btn_circle_scroll2:
+            case R.id.btn_tarot_anim_3:
                 TarotCircleCardActivity.start(this);
                 break;
         }

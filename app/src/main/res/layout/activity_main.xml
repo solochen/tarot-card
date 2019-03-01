@@ -7,40 +7,26 @@
     android:orientation="vertical">
 
     <Button
-        android:id="@+id/btn_reset"
+        android:id="@+id/btn_tarot_anim_1"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:onClick="onBtnClick"
-        android:text="洗牌"/>
+        android:text="塔罗牌动效一"/>
 
 
 
     <Button
-        android:id="@+id/btn_switch"
+        android:id="@+id/btn_tarot_anim_2"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:onClick="onBtnClick"
-        android:text="洗牌动画2"/>
+        android:text="塔罗牌动效二"/>
 
     <Button
-        android:id="@+id/btn_circle"
+        android:id="@+id/btn_tarot_anim_3"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:onClick="onBtnClick"
-        android:text="圆形"/>
-
-    <Button
-        android:id="@+id/btn_circle_scroll"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:onClick="onBtnClick"
-        android:text="圆形滚轮"/>
-
-    <Button
-        android:id="@+id/btn_circle_scroll2"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:onClick="onBtnClick"
-        android:text="圆形滚轮"/>
+        android:text="塔罗牌动效三"/>
 
 </LinearLayout>

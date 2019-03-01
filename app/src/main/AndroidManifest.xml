@@ -24,10 +24,6 @@
 
         <activity android:name=".TarotAnimSwitchActivity" />
 
-        <activity android:name=".CircleActivity" />
-
-        <activity android:name=".CircleCardActivity" />
-
         <activity android:name=".TarotCircleCardActivity" />
 
     </application>

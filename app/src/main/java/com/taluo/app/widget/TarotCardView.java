@@ -1,4 +1,4 @@
-package com.taluo.app;
+package com.taluo.app.widget;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -6,6 +6,8 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
+
+import com.taluo.app.R;
 
 /**
  * Created by chenshaolong on 2019/2/19.

@@ -41,10 +41,11 @@
 
     <FrameLayout
         android:id="@+id/outer_card_view"
-        android:layout_width="320dp"
-        android:layout_height="440dp"
-        android:layout_gravity="center_horizontal|bottom"
-        android:layout_marginBottom="-250dp">
+        android:layout_width="@dimen/card_double_width"
+        android:layout_height="@dimen/card_double_height"
+        android:layout_gravity="center"
+        android:layout_marginLeft="@dimen/card_half_width"
+        android:layout_marginTop="@dimen/card_half_height">
 
         <View
             android:id="@+id/card_view"
