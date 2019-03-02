@@ -3,7 +3,7 @@
 
 效果如图：
 ![image]
-(https://github.com/solochen/tarot-card/blob/master/app/src/main/assets/anim1.gif)
+https://github.com/solochen/tarot-card/blob/master/app/src/main/assets/anim1.gif
 
 https://github.com/solochen/tarot-card/blob/master/app/src/main/assets/anim2.gif
 
