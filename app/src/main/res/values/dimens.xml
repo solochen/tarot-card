@@ -1,9 +1,10 @@
 <resources>
 
-    <dimen name="card_width">160dp</dimen>
-    <dimen name="card_height">220dp</dimen>
-    <dimen name="card_half_width">80dp</dimen>
-    <dimen name="card_half_height">110dp</dimen>
-    <dimen name="card_double_width">320dp</dimen>
-    <dimen name="card_double_height">440dp</dimen>
+    <dimen name="card_width">144dp</dimen>
+    <dimen name="card_height">190dp</dimen>
+    <dimen name="card_half_width">72dp</dimen>
+    <dimen name="card_half_height">95dp</dimen>
+    <dimen name="card_double_width">288dp</dimen>
+    <dimen name="card_double_height">380dp</dimen>
+    <dimen name="card_top_margin">170dp</dimen>
 </resources>

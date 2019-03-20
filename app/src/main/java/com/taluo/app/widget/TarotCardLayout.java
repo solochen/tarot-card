@@ -40,6 +40,8 @@ public class TarotCardLayout extends FrameLayout {
     private boolean isFling;
     private int mCardWidth; //卡片宽度
     private int mCardHeight; //卡片高度
+    private float mCardPointX;
+    private float mCardPointY;
     private AutoFlingRunnable mFlingRunnable;
     private static final int MAX_CAN_CLICK_ANGLE = 3;
     private static final int CARD_INIT_ANGLE = -60; //卡片开始展开时的角度
@@ -77,11 +79,18 @@ public class TarotCardLayout extends FrameLayout {
             final View chooseView = view.findViewById(R.id.tarot_choose_view);
             final View tarotDecodeLayout = view.findViewById(R.id.layout_tarot_decode);
             final View topRightPoint = view.findViewById(R.id.right_top_point);
-            if (i % 2 == 0) {
-                view.setRotation(2);
-            } else if (i % 3 == 0) {
-                view.setRotation(-2);
+            if(position == 0) {
+                mCardPointX = view.getX();
+                mCardPointY = view.getY();
             }
+            view.setVisibility(GONE);
+            int translate = 20;
+            if (i >= 0 && i <= 4) {
+                view.setTranslationX(translate * (5 - i));
+                view.setTranslationY(translate * (5 - i));
+                view.setVisibility(VISIBLE);
+            }
+
             cardView.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -166,12 +175,18 @@ public class TarotCardLayout extends FrameLayout {
         for (int i = 0; i < getChildCount(); i++) {
             final int position = i;
             View view = getChildAt(i);
-            view.setRotation(0);
             final View cardView = view.findViewById(R.id.card_view);
             final View outView = view.findViewById(R.id.outer_card_view);
             final View chooseView = view.findViewById(R.id.tarot_choose_view);
             final View tarotDecodeLayout = view.findViewById(R.id.layout_tarot_decode);
             final View topRightPoint = view.findViewById(R.id.right_top_point);
+
+            if (i >= 0 && i <= 4) {
+                view.setX(mCardPointX);
+                view.setY(mCardPointY);
+            }
+            view.setVisibility(VISIBLE);
+
             cardView.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -245,7 +260,7 @@ public class TarotCardLayout extends FrameLayout {
     public void startRotationAnim(final View innerCardView, float startAngle, float passAngle, float endAngle) {
 
         float translateLeftX = mCardWidth / 2;
-        float translateBottomY = getScreenHeight(mContext) / 2 - mCardHeight / 2;
+        float translateBottomY = getScreenHeight(mContext) / 2 - (float)(mCardHeight * 0.8);
 
         //平移卡片到底部待展开形似
         ObjectAnimator translationXAnim = ObjectAnimator.ofFloat(innerCardView, "translationX", -translateLeftX);
@@ -410,8 +425,8 @@ public class TarotCardLayout extends FrameLayout {
             }
         });
 
-        ObjectAnimator scaleXAnim = ObjectAnimator.ofFloat(innerCardView, "scaleX", 1f, 0.6f);
-        ObjectAnimator scaleYAnim = ObjectAnimator.ofFloat(innerCardView, "scaleY", 1f, 0.6f);
+        ObjectAnimator scaleXAnim = ObjectAnimator.ofFloat(innerCardView, "scaleX", 1f, 0.76f);
+        ObjectAnimator scaleYAnim = ObjectAnimator.ofFloat(innerCardView, "scaleY", 1f, 0.76f);
         scaleXAnim.setInterpolator(new LinearInterpolator());
         scaleYAnim.setInterpolator(new LinearInterpolator());
 

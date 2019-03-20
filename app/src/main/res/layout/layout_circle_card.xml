@@ -45,7 +45,7 @@
         android:layout_height="@dimen/card_double_height"
         android:layout_gravity="center"
         android:layout_marginLeft="@dimen/card_half_width"
-        android:layout_marginTop="@dimen/card_half_height">
+        android:layout_marginTop="@dimen/card_top_margin">
 
         <View
             android:id="@+id/card_view"
