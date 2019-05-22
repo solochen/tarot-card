@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.taluo.app.custom.GRScrollView
+        android:id="@+id/scrollview_share"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@mipmap/bg_gr_find"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="25dp"
+                android:background="@mipmap/bg_gr_title"
+                android:gravity="center"
+                android:paddingLeft="50dp"
+                android:paddingRight="50dp"
+                android:singleLine="true"
+                android:text="添加好友，连线查看两人关系分析"
+                android:textColor="#FFFFFF"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@mipmap/bg_gr_circle"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.taluo.app.widget.LineToView
+                        android:id="@+id/line_to_view"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:clickable="true"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <android.support.constraint.Guideline
+                        android:id="@+id/vertical_line"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_percent="0.5" />
+
+                    <android.support.constraint.Guideline
+                        android:id="@+id/horizontal_line"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        app:layout_constraintGuide_percent="0.5" />
+
+                    <FrameLayout
+                        android:id="@+id/self_layout"
+                        android:layout_width="128dp"
+                        android:layout_height="128dp"
+                        android:background="@mipmap/ic_gr_self"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:id="@+id/iv_self_avatar"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:layout_margin="14dp"
+                            android:scaleType="centerCrop"
+                            android:src="@mipmap/ic_launcher" />
+                    </FrameLayout>
+
+                    <LinearLayout
+                        style="@style/GRLineFriendLayoutStyle"
+                        app:layout_constraintBottom_toBottomOf="@+id/self_layout"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="7dp"
+                            android:maxWidth="70dp"
+                            android:singleLine="true"
+                            android:text="艾米哈哈的Ad啊水电安师大发水电费费"
+                            android:textColor="#FFFFFF"
+                            android:textSize="12dp" />
+
+                        <View
+                            android:layout_width="0.5dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="1dp"
+                            android:layout_marginTop="1dp"
+                            android:background="#FFFFFF" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:singleLine="true"
+                            android:text="8号人"
+                            android:textColor="#FFFFFF"
+                            android:textSize="12dp" />
+                    </LinearLayout>
+
+                    <FrameLayout
+                        android:id="@+id/first_friend_layout"
+                        style="@style/GRLineAddViewStyle"
+                        android:layout_marginTop="20dp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <LinearLayout
+                        android:id="@+id/first_friend_name_layout"
+                        style="@style/GRLineFriendLayoutStyle"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/first_friend_layout">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="7dp"
+                            android:maxWidth="50dp"
+                            android:singleLine="true"
+                            android:text="艾米哈哈的Ad啊水电安师大发水电费费"
+                            android:textColor="#FFFFFF"
+                            android:textSize="12dp" />
+
+                        <View
+                            android:layout_width="0.5dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="1dp"
+                            android:layout_marginTop="1dp"
+                            android:background="#FFFFFF" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:singleLine="true"
+                            android:text="8号人"
+                            android:textColor="#FFFFFF"
+                            android:textSize="12dp" />
+                    </LinearLayout>
+
+                    <FrameLayout
+                        android:id="@+id/second_friend_layout"
+                        style="@style/GRLineAddViewStyle"
+                        android:layout_marginBottom="38dp"
+                        android:layout_marginRight="35dp"
+                        app:layout_constraintBottom_toTopOf="@+id/horizontal_line"
+                        app:layout_constraintRight_toRightOf="parent" />
+
+                    <LinearLayout
+                        style="@style/GRLineFriendLayoutStyle"
+                        app:layout_constraintLeft_toLeftOf="@+id/second_friend_layout"
+                        app:layout_constraintRight_toRightOf="@+id/second_friend_layout"
+                        app:layout_constraintTop_toBottomOf="@+id/second_friend_layout">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginRight="7dp"
+                            android:gravity="center_vertical"
+                            android:maxWidth="50dp"
+                            android:singleLine="true"
+                            android:text="艾米哈哈的Ad啊水电安师大发水电费费"
+                            android:textColor="#FFFFFF"
+                            android:textSize="12dp" />
+
+                        <View
+                            android:layout_width="0.5dp"
+                            android:layout_height="match_parent"
+                            android:background="#FFFFFF" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:singleLine="true"
+                            android:text="8号人"
+                            android:textColor="#FFFFFF"
+                            android:textSize="12dp" />
+                    </LinearLayout>
+
+                    <FrameLayout
+                        android:id="@+id/third_friend_layout"
+                        style="@style/GRLineAddViewStyle"
+                        android:layout_marginRight="35dp"
+                        android:layout_marginTop="38dp"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/horizontal_line" />
+
+                    <LinearLayout
+                        style="@style/GRLineFriendLayoutStyle"
+                        app:layout_constraintLeft_toLeftOf="@+id/third_friend_layout"
+                        app:layout_constraintRight_toRightOf="@+id/third_friend_layout"
+                        app:layout_constraintTop_toBottomOf="@+id/third_friend_layout">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="7dp"
+                            android:maxWidth="50dp"
+                            android:singleLine="true"
+                            android:text="艾米哈哈的Ad啊水电安师大发水电费费"
+                            android:textColor="#FFFFFF"
+                            android:textSize="12dp" />
+
+                        <View
+                            android:layout_width="0.5dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="1dp"
+                            android:layout_marginTop="1dp"
+                            android:background="#FFFFFF" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:singleLine="true"
+                            android:text="8号人"
+                            android:textColor="#FFFFFF"
+                            android:textSize="12dp" />
+                    </LinearLayout>
+
+                    <FrameLayout
+                        android:id="@+id/fourth_friend_layout"
+                        style="@style/GRLineAddViewStyle"
+                        android:layout_marginBottom="20dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent" />
+
+                    <LinearLayout
+                        style="@style/GRLineFriendLayoutStyle"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/fourth_friend_layout">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="7dp"
+                            android:maxWidth="50dp"
+                            android:singleLine="true"
+                            android:text="艾米哈哈的Ad啊水电安师大发水电费费"
+                            android:textColor="#FFFFFF"
+                            android:textSize="12dp" />
+
+                        <View
+                            android:layout_width="0.5dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="1dp"
+                            android:layout_marginTop="1dp"
+                            android:background="#FFFFFF" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:singleLine="true"
+                            android:text="8号人"
+                            android:textColor="#FFFFFF"
+                            android:textSize="12dp" />
+                    </LinearLayout>
+
+
+                    <FrameLayout
+                        android:id="@+id/fifth_friend_layout"
+                        android:layout_marginLeft="35dp"
+                        android:layout_marginTop="38dp"
+                        style="@style/GRLineAddViewStyle"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/horizontal_line" />
+
+                    <LinearLayout
+                        style="@style/GRLineFriendLayoutStyle"
+                        app:layout_constraintLeft_toLeftOf="@+id/fifth_friend_layout"
+                        app:layout_constraintRight_toRightOf="@+id/fifth_friend_layout"
+                        app:layout_constraintTop_toBottomOf="@+id/fifth_friend_layout">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="7dp"
+                            android:maxWidth="50dp"
+                            android:singleLine="true"
+                            android:text="艾米哈哈的Ad啊水电安师大发水电费费"
+                            android:textColor="#FFFFFF"
+                            android:textSize="12dp" />
+
+                        <View
+                            android:layout_width="0.5dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="1dp"
+                            android:layout_marginTop="1dp"
+                            android:background="#FFFFFF" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:singleLine="true"
+                            android:text="8号人"
+                            android:textColor="#FFFFFF"
+                            android:textSize="12dp" />
+                    </LinearLayout>
+
+                    <FrameLayout
+                        android:id="@+id/sixth_friend_layout"
+                        style="@style/GRLineAddViewStyle"
+                        android:layout_marginBottom="38dp"
+                        android:layout_marginLeft="35dp"
+                        app:layout_constraintBottom_toTopOf="@+id/horizontal_line"
+                        app:layout_constraintLeft_toLeftOf="parent" />
+
+                    <LinearLayout
+                        style="@style/GRLineFriendLayoutStyle"
+                        app:layout_constraintLeft_toLeftOf="@+id/sixth_friend_layout"
+                        app:layout_constraintRight_toRightOf="@+id/sixth_friend_layout"
+                        app:layout_constraintTop_toBottomOf="@+id/sixth_friend_layout">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="7dp"
+                            android:maxWidth="50dp"
+                            android:singleLine="true"
+                            android:text="艾米哈哈的Ad啊水电安师大发水电费费"
+                            android:textColor="#FFFFFF"
+                            android:textSize="12dp" />
+
+                        <View
+                            android:layout_width="0.5dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="1dp"
+                            android:layout_marginTop="1dp"
+                            android:background="#FFFFFF" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:singleLine="true"
+                            android:text="8号人"
+                            android:textColor="#FFFFFF"
+                            android:textSize="12dp" />
+                    </LinearLayout>
+
+                </android.support.constraint.ConstraintLayout>
+
+            </android.support.constraint.ConstraintLayout>
+        </LinearLayout>
+    </com.taluo.app.custom.GRScrollView>
+</android.support.constraint.ConstraintLayout>

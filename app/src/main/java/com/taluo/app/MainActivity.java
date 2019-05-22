@@ -24,6 +24,16 @@ public class MainActivity extends Activity {
             case R.id.btn_tarot_anim_3:
                 TarotCircleCardActivity.start(this);
                 break;
+            case R.id.btn_circle_custom:
+                CircleCustomActivity.start(this);
+                break;
+            case R.id.btn_pdf_view:
+                PdfViewActivity.start(this);
+                break;
+            case R.id.btn_line:
+                FindGRActivity.start(this);
+                break;
+
         }
     }
 

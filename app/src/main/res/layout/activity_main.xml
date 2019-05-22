@@ -29,4 +29,25 @@
         android:onClick="onBtnClick"
         android:text="塔罗牌动效三"/>
 
+    <Button
+        android:id="@+id/btn_circle_custom"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:onClick="onBtnClick"
+        android:text="画圆"/>
+
+    <Button
+        android:id="@+id/btn_pdf_view"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:onClick="onBtnClick"
+        android:text="PDFView"/>
+
+    <Button
+        android:id="@+id/btn_line"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:onClick="onBtnClick"
+        android:text="连线"/>
+
 </LinearLayout>
