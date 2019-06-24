@@ -9,8 +9,9 @@
         android:id="@+id/layout_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_centerVertical="true"
         android:layout_marginTop="100dp"
-        android:layout_centerVertical="true">
+        android:visibility="gone">
 
         <View
             android:id="@+id/view_card1"
@@ -101,6 +102,10 @@
             android:layout_marginTop="20dp"
             android:background="@mipmap/tarot" />
     </FrameLayout>
+
+    <com.taluo.app.widget.HoniView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
     <Button
         android:id="@+id/btn_start"

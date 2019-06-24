@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tv_selection"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="130dp"
+        android:background="#33ccff"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="第1张"
+        android:textColor="#FFF" />
+
+
+    <ImageView
+        android:id="@+id/first_open_image"
+        android:layout_width="70dp"
+        android:layout_height="100dp"
+        android:layout_alignBottom="@+id/second_open_image"
+        android:layout_marginRight="30dp"
+        android:layout_toLeftOf="@+id/second_open_image"
+        android:background="#3cf" />
+
+    <ImageView
+        android:id="@+id/second_open_image"
+        android:layout_width="70dp"
+        android:layout_height="100dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="100dp"
+        android:background="#3cf" />
+
+    <ImageView
+        android:id="@+id/third_open_image"
+        android:layout_width="70dp"
+        android:layout_height="100dp"
+        android:layout_alignBottom="@+id/second_open_image"
+        android:layout_marginLeft="30dp"
+        android:layout_toRightOf="@+id/second_open_image"
+        android:background="#3cf" />
+
+    <com.taluo.app.widget.MuScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:scrollbars="none">
+
+        <FrameLayout
+            android:id="@+id/container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+        </FrameLayout>
+
+    </com.taluo.app.widget.MuScrollView>
+
+</RelativeLayout>
