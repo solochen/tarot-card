@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 
 import com.taluo.app.custom.AnimHelper;
+import com.taluo.app.widget.TarotSelectionView;
 
 public class TarotAnimSwitchActivity extends Activity {
 
@@ -31,6 +32,7 @@ public class TarotAnimSwitchActivity extends Activity {
     View mCardView9;
     View mCardView10;
 
+    TarotSelectionView mTarotSelectionView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +61,8 @@ public class TarotAnimSwitchActivity extends Activity {
         mCardView8 = findViewById(R.id.view_card8);
         mCardView9 = findViewById(R.id.view_card9);
         mCardView10 = findViewById(R.id.view_card10);
+
+        mTarotSelectionView = findViewById(R.id.tarot_selection_view);
 
     }
 

@@ -9,20 +9,20 @@ import android.widget.HorizontalScrollView;
  * Created by chenshaolong on 2019/6/24.
  */
 
-public class MuScrollView extends HorizontalScrollView {
+public class SlideScrollView extends HorizontalScrollView {
 
-    private boolean isSlide = true;
+    private boolean isSlide = true;  //控制是否滚动
     OnScrollListener mListener;
 
-    public MuScrollView(Context context) {
+    public SlideScrollView(Context context) {
         super(context);
     }
 
-    public MuScrollView(Context context, AttributeSet attrs) {
+    public SlideScrollView(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public MuScrollView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public SlideScrollView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
@@ -30,7 +30,7 @@ public class MuScrollView extends HorizontalScrollView {
         void onScroll(int scrollX, int scrollY, int oldX, int oldY);
     }
 
-    public void setListener(OnScrollListener listener) {
+    public void setScrollChangedListener(OnScrollListener listener) {
         mListener = listener;
     }
 

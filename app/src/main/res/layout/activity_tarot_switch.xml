@@ -11,7 +11,7 @@
         android:layout_height="match_parent"
         android:layout_centerVertical="true"
         android:layout_marginTop="100dp"
-        android:visibility="gone">
+        android:visibility="visible">
 
         <View
             android:id="@+id/view_card1"
@@ -103,9 +103,11 @@
             android:background="@mipmap/tarot" />
     </FrameLayout>
 
-    <com.taluo.app.widget.HoniView
+    <com.taluo.app.widget.TarotSelectionView
+        android:id="@+id/tarot_selection_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:visibility="gone" />
 
     <Button
         android:id="@+id/btn_start"
