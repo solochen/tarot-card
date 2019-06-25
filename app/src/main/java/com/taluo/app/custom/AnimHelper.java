@@ -30,7 +30,7 @@ public class AnimHelper {
 
         ValueAnimator animator2 = ValueAnimator.ofObject(new PointEvaluator(new PointF(mCardView.getX() - goByX, mCardView.getY() + goByY)),
                 new PointF(mCardView.getX(), mCardView.getY() + doneY),
-                new PointF(mCardView.getX(), mCardView.getY()));
+                new PointF(mCardView.getX(), mCardView.getY() + 100));
         animator2.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
@@ -43,28 +43,18 @@ public class AnimHelper {
         ObjectAnimator view1Anim = ObjectAnimator.ofFloat(mCardView, "rotation",
                 0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330, 360,
                 390, 420, 450, 480, 510, 540, 570, 600, 630, 660, 690, 720);
-//        view1Anim.setDuration(6000);
         view1Anim.setInterpolator(new LinearInterpolator());
-
-        AnimatorSet set1 = new AnimatorSet();
-        AnimatorSet set2 = new AnimatorSet();
-        AnimatorSet set3 = new AnimatorSet();
-        AnimatorSet set4 = new AnimatorSet();
 
         animator1.setRepeatMode(ValueAnimator.REVERSE);
         animator1.setInterpolator(new LinearInterpolator());
-//        animator1.setDuration(3000);
 
         animator2.setRepeatMode(ValueAnimator.REVERSE);
         animator2.setInterpolator(new LinearInterpolator());
-//        animator2.setDuration(3000);
 
-        set4.play(animator2).with(view1Anim);
-        set3.play(animator1).with(view1Anim).before(set4);
+        AnimatorSet set2 = new AnimatorSet();
+        set2.play(animator2).with(view1Anim);
 
-        set2.play(animator2).with(view1Anim).before(set3);
-//        set2.setDuration(3000);
-
+        AnimatorSet set1 = new AnimatorSet();
         set1.play(animator1).with(view1Anim).before(set2);
         set1.setDuration(duration);
         set1.setStartDelay(delayTime);
@@ -74,7 +64,7 @@ public class AnimHelper {
 
 
     public static void translateYdownAnim(final View view, Animator.AnimatorListener listener) {
-        ValueAnimator animator = ValueAnimator.ofFloat(view.getY(), view.getY() + 50);
+        ValueAnimator animator = ValueAnimator.ofFloat(view.getY(), view.getY() + 100);
         animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
@@ -82,7 +72,7 @@ public class AnimHelper {
                 view.setY(pointY);
             }
         });
-        animator.setDuration(500);
+        animator.setDuration(200);
         animator.addListener(listener);
         animator.start();
     }

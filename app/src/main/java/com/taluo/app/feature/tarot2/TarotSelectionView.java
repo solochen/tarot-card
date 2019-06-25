@@ -1,4 +1,4 @@
-package com.taluo.app.widget;
+package com.taluo.app.feature.tarot2;
 
 import android.animation.Animator;
 import android.animation.AnimatorInflater;
@@ -16,7 +16,6 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.taluo.app.CardXLocation;
 import com.taluo.app.R;
 import com.taluo.app.custom.BezierEvaluator;
 

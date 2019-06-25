@@ -1,4 +1,4 @@
-package com.taluo.app.widget;
+package com.taluo.app.feature.connection;
 
 import android.content.Context;
 import android.graphics.Canvas;

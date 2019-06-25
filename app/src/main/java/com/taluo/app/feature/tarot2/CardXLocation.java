@@ -1,4 +1,4 @@
-package com.taluo.app;
+package com.taluo.app.feature.tarot2;
 
 /**
  * Created by chenshaolong on 2019/6/24.

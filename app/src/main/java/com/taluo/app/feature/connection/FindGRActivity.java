@@ -1,4 +1,4 @@
-package com.taluo.app;
+package com.taluo.app.feature.connection;
 
 import android.app.Activity;
 import android.content.Context;
@@ -10,8 +10,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 
-import com.taluo.app.custom.GRScrollView;
-import com.taluo.app.widget.LineToView;
+import com.taluo.app.R;
 
 /**
  * Created by chenshaolong on 2019/2/27.

@@ -5,105 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <FrameLayout
-        android:id="@+id/layout_container"
+    <com.taluo.app.feature.tarot2.TarotShuffleView
+        android:id="@+id/tarot_shuffle_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_centerVertical="true"
         android:layout_marginTop="100dp"
-        android:visibility="visible">
+        android:visibility="visible" />
 
-        <View
-            android:id="@+id/view_card1"
-            android:layout_width="70dp"
-            android:layout_height="100dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginLeft="4.5dp"
-            android:layout_marginTop="24.5dp"
-            android:background="@mipmap/tarot" />
 
-        <View
-            android:id="@+id/view_card2"
-            android:layout_width="70dp"
-            android:layout_height="100dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginLeft="4dp"
-            android:layout_marginTop="24dp"
-            android:background="@mipmap/tarot" />
-
-        <View
-            android:id="@+id/view_card3"
-            android:layout_width="70dp"
-            android:layout_height="100dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginLeft="3.5dp"
-            android:layout_marginTop="23.5dp"
-            android:background="@mipmap/tarot" />
-
-        <View
-            android:id="@+id/view_card4"
-            android:layout_width="70dp"
-            android:layout_height="100dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginLeft="3dp"
-            android:layout_marginTop="23dp"
-            android:background="@mipmap/tarot" />
-
-        <View
-            android:id="@+id/view_card5"
-            android:layout_width="70dp"
-            android:layout_height="100dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginLeft="2.5dp"
-            android:layout_marginTop="22.5dp"
-            android:background="@mipmap/tarot" />
-
-        <View
-            android:id="@+id/view_card6"
-            android:layout_width="70dp"
-            android:layout_height="100dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginLeft="2dp"
-            android:layout_marginTop="22dp"
-            android:background="@mipmap/tarot" />
-
-        <View
-            android:id="@+id/view_card7"
-            android:layout_width="70dp"
-            android:layout_height="100dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginLeft="1.5dp"
-            android:layout_marginTop="21.5dp"
-            android:background="@mipmap/tarot" />
-
-        <View
-            android:id="@+id/view_card8"
-            android:layout_width="70dp"
-            android:layout_height="100dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginLeft="1dp"
-            android:layout_marginTop="21dp"
-            android:background="@mipmap/tarot" />
-
-        <View
-            android:id="@+id/view_card9"
-            android:layout_width="70dp"
-            android:layout_height="100dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginLeft="0.5dp"
-            android:layout_marginTop="20.5dp"
-            android:background="@mipmap/tarot" />
-
-        <View
-            android:id="@+id/view_card10"
-            android:layout_width="70dp"
-            android:layout_height="100dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="20dp"
-            android:background="@mipmap/tarot" />
-    </FrameLayout>
-
-    <com.taluo.app.widget.TarotSelectionView
+    <com.taluo.app.feature.tarot2.TarotSelectionView
         android:id="@+id/tarot_selection_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

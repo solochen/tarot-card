@@ -1,4 +1,4 @@
-package com.taluo.app.widget;
+package com.taluo.app.feature.tarot3;
 
 import android.animation.Animator;
 import android.animation.AnimatorInflater;
@@ -19,7 +19,6 @@ import android.widget.FrameLayout;
 
 import com.taluo.app.R;
 import com.taluo.app.custom.BezierEvaluator;
-import com.taluo.app.listener.OnItemClickListener;
 
 /**
  * Created by chenshaolong on 2019/2/28.

@@ -1,4 +1,4 @@
-package com.taluo.app.widget;
+package com.taluo.app.feature.tarot2;
 
 import android.content.Context;
 import android.util.AttributeSet;

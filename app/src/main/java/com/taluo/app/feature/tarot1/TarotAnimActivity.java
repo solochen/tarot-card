@@ -1,4 +1,4 @@
-package com.taluo.app;
+package com.taluo.app.feature.tarot1;
 
 import android.animation.Animator;
 import android.animation.AnimatorSet;
@@ -14,7 +14,7 @@ import android.view.animation.LinearInterpolator;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 
-import com.taluo.app.widget.TarotCardView;
+import com.taluo.app.R;
 
 public class TarotAnimActivity extends Activity {
 

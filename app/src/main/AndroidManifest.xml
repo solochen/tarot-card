@@ -18,21 +18,19 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".TarotAnimActivity">
+        <activity android:name=".feature.tarot1.TarotAnimActivity">
 
         </activity>
 
-        <activity android:name=".TarotAnimSwitchActivity" />
+        <activity android:name=".feature.tarot2.TarotAnimSwitchActivity" />
 
-        <activity android:name=".TarotCircleCardActivity" />
+        <activity android:name=".feature.tarot3.TarotCircleCardActivity" />
 
-        <activity android:name=".CircleCustomActivity" />
-
-        <activity android:name=".PdfViewActivity">
+        <activity android:name=".feature.pdfview.PdfViewActivity">
 
         </activity>
 
-        <activity android:name=".FindGRActivity">
+        <activity android:name=".feature.connection.FindGRActivity">
 
         </activity>
 

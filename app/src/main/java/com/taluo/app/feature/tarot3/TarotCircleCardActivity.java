@@ -1,4 +1,4 @@
-package com.taluo.app;
+package com.taluo.app.feature.tarot3;
 
 import android.app.Activity;
 import android.content.Context;
@@ -8,8 +8,7 @@ import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.Button;
 
-import com.taluo.app.listener.OnItemClickListener;
-import com.taluo.app.widget.TarotCardLayout;
+import com.taluo.app.R;
 
 /**
  * Created by chenshaolong on 2019/2/27.
@@ -40,12 +39,6 @@ public class TarotCircleCardActivity extends Activity {
             }
         });
 
-        mTarotCardLayout.setOnItemClickListener(new OnItemClickListener() {
-            @Override
-            public void onItemClick() {
-
-            }
-        });
     }
 
 

@@ -1,4 +1,4 @@
-package com.taluo.app.widget;
+package com.taluo.app.feature.tarot1;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
