@@ -5,6 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <android.support.constraint.Group
+        android:id="@+id/view_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:constraint_referenced_ids="tv_selection, first_image_border,second_image_border, third_image_border" />
+
     <TextView
         android:id="@+id/tv_selection"
         android:layout_width="80dp"
@@ -32,7 +39,6 @@
         android:layout_width="72dp"
         android:layout_height="102dp"
         android:layout_marginBottom="100dp"
-        android:layout_marginRight="30dp"
         android:background="@drawable/bg_conner"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -68,7 +74,6 @@
         app:layout_constraintLeft_toLeftOf="@+id/second_image_border"
         app:layout_constraintRight_toRightOf="@+id/second_image_border"
         app:layout_constraintTop_toTopOf="@+id/second_image_border" />
-
 
     <ImageView
         android:id="@+id/third_open_image"

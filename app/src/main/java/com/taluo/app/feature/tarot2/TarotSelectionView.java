@@ -6,8 +6,10 @@ import android.animation.AnimatorSet;
 import android.animation.ValueAnimator;
 import android.content.Context;
 import android.graphics.PointF;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.constraint.Group;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.view.View;
@@ -38,6 +40,8 @@ public class TarotSelectionView extends FrameLayout {
 
     ImageView mIvTranslate;
 
+    Group mViewGroup;
+
     private static final int MAX_CARD_COUNT = 78;       //卡片总数
     int mScreenHalfWidth = 0; //屏幕中间X坐标
     boolean isFirstViewFilled;
@@ -62,7 +66,7 @@ public class TarotSelectionView extends FrameLayout {
 
     private void initView(Context context) {
         mContext = context;
-        mScreenHalfWidth = getScreenWidth(mContext) / 2;
+        mScreenHalfWidth = ScreenUtil.getScreenWidth(mContext) / 2;
 
         View view = inflate(context, R.layout.layout_selection_view, this);
         mScrollView = view.findViewById(R.id.scrollView);
@@ -73,6 +77,8 @@ public class TarotSelectionView extends FrameLayout {
         mThirdOpenImage = view.findViewById(R.id.third_open_image);
 
         mIvTranslate = view.findViewById(R.id.iv_translate);
+
+        mViewGroup = view.findViewById(R.id.view_group);
 
         mScrollView.setScrollChangedListener(new SlideScrollView.OnScrollListener() {
             @Override
@@ -90,10 +96,10 @@ public class TarotSelectionView extends FrameLayout {
         });
 
         //卡片显示的宽度（卡片总宽是70dip）
-        int cardDisplayWidth = dip2px(mContext, 50);
+        int cardDisplayWidth = ScreenUtil.dip2px(mContext, 30);
         //留出scrollview最后一个卡片离右边的距离
-        int rightPadding = mScreenHalfWidth - dip2px(mContext, 35);
-        int leftPadding = getScreenWidth(mContext) / 2 - cardDisplayWidth / 2;
+        int rightPadding = mScreenHalfWidth - ScreenUtil.dip2px(mContext, 35);
+        int leftPadding = ScreenUtil.getScreenWidth(mContext) / 2 - cardDisplayWidth / 2;
         mCardContainer.setPadding(leftPadding, 0, rightPadding, 0);
 
         mCardLocations.clear();
@@ -132,7 +138,7 @@ public class TarotSelectionView extends FrameLayout {
                         return;
                     }
                     itemView.setTag(true);
-                    itemView.setTranslationY(dip2px(mContext, 20));
+                    itemView.setTranslationY(ScreenUtil.dip2px(mContext, 20));
                     resetCardViews(currentPosition);
                 }
             });
@@ -146,12 +152,21 @@ public class TarotSelectionView extends FrameLayout {
 
             //记录每张卡片的最左边X坐标和可视区域最右边X坐标，用来判断滚动到第几张
             CardXLocation location = new CardXLocation();
-            location.startX = p.leftMargin;
-            location.endX = p.leftMargin + cardDisplayWidth;
+            location.startX = leftPadding + p.leftMargin;
+            location.endX = leftPadding + p.leftMargin + cardDisplayWidth;
             mCardLocations.add(location);
         }
     }
 
+    public void showTarotSelectionView(){
+        setVisibility(VISIBLE);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                mViewGroup.setVisibility(View.VISIBLE);
+            }
+        }, 300);
+    }
 
     /**
      * 重置其它卡片恢复到原位
@@ -189,31 +204,12 @@ public class TarotSelectionView extends FrameLayout {
             }
         });
         animator.setDuration(1000);
-        animator.addListener(new Animator.AnimatorListener() {
+        animator.addListener(new MyAnimatorListener() {
             @Override
-            public void onAnimationStart(Animator animator) {
-
-            }
-
-            @Override
-            public void onAnimationEnd(Animator animator) {
+            public void onAnimationEnd(Animator animation) {
                 //恢复scrollView滚动
                 mScrollView.setSlide(true);
-
                 cardDanceAnim(startView, endView);
-
-//                startView.setVisibility(View.GONE);
-//                endView.setBackgroundColor(Color.parseColor("#CCCCCC"));
-            }
-
-            @Override
-            public void onAnimationCancel(Animator animator) {
-
-            }
-
-            @Override
-            public void onAnimationRepeat(Animator animator) {
-
             }
         });
         animator.start();
@@ -231,38 +227,10 @@ public class TarotSelectionView extends FrameLayout {
         AnimatorSet mDisplaySet = (AnimatorSet) AnimatorInflater.loadAnimator(mContext, R.animator.tarot_rotate_display);
         mDismissSet.setTarget(originView);
         mDisplaySet.setTarget(targetView);
-        mDisplaySet.addListener(new Animator.AnimatorListener() {
-            @Override
-            public void onAnimationStart(Animator animator) {
-
-            }
-
-            @Override
-            public void onAnimationEnd(Animator animator) {
-            }
-
-            @Override
-            public void onAnimationCancel(Animator animator) {
-
-            }
-
-            @Override
-            public void onAnimationRepeat(Animator animator) {
-
-            }
-        });
+        mDisplaySet.addListener(new MyAnimatorListener() {});
         mDismissSet.start();
         mDisplaySet.start();
     }
 
 
-    public static int dip2px(Context context, float dip) {
-        float density = context.getResources().getDisplayMetrics().density;
-        return (int) (dip * density + 0.5F * (float) (dip >= 0.0F ? 1 : -1));
-    }
-
-    public static int getScreenWidth(Context context) {
-        DisplayMetrics dm = context.getResources().getDisplayMetrics();
-        return dm.widthPixels;
-    }
 }

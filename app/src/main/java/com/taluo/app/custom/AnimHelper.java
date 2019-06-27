@@ -8,6 +8,8 @@ import android.graphics.PointF;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
 
+import com.taluo.app.feature.tarot2.MyAnimatorListener;
+
 /**
  * Created by chenshaolong on 2019/2/26.
  */
@@ -30,7 +32,7 @@ public class AnimHelper {
 
         ValueAnimator animator2 = ValueAnimator.ofObject(new PointEvaluator(new PointF(mCardView.getX() - goByX, mCardView.getY() + goByY)),
                 new PointF(mCardView.getX(), mCardView.getY() + doneY),
-                new PointF(mCardView.getX(), mCardView.getY() + 100));
+                new PointF(mCardView.getX(), mCardView.getY()));
         animator2.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
@@ -63,20 +65,6 @@ public class AnimHelper {
     }
 
 
-    public static void translateYdownAnim(final View view, Animator.AnimatorListener listener) {
-        ValueAnimator animator = ValueAnimator.ofFloat(view.getY(), view.getY() + 100);
-        animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                float pointY = (float) valueAnimator.getAnimatedValue();
-                view.setY(pointY);
-            }
-        });
-        animator.setDuration(200);
-        animator.addListener(listener);
-        animator.start();
-    }
-
     public static void translateXAnim(final View leftView, final View rightView, Animator.AnimatorListener listener) {
         ValueAnimator leftAnimator = ValueAnimator.ofFloat(leftView.getX(), leftView.getX() - 280, leftView.getX());
         leftAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
@@ -98,58 +86,50 @@ public class AnimHelper {
 
         AnimatorSet animatorSet = new AnimatorSet();
         animatorSet.play(leftAnimator).with(rightAnimator);
-        animatorSet.setDuration(1500);
+        animatorSet.setDuration(1000);
         animatorSet.addListener(listener);
         animatorSet.start();
     }
 
-    public static void lastAnimation(final View mCardView, int leftTopX, int leftTopY, int rightX, int rightY) {
 
-        float newX = mCardView.getX() - leftTopX;
-        float newY = mCardView.getY() - leftTopY;
+    public static void zoomOutAnimatorWithTranslation(View view, int fromX, int fromY) {
+        ObjectAnimator translationX = ObjectAnimator.ofFloat(view, "translationX", fromX, 0);
+        translationX.setInterpolator(new LinearInterpolator());
 
-        ValueAnimator animator1 = ValueAnimator.ofObject(new BezierEvaluator(),
-                new PointF(mCardView.getX(), mCardView.getY()),
-                new PointF(newX, newY));
-        animator1.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                PointF pointF = (PointF) animation.getAnimatedValue();
-                mCardView.setX(pointF.x);
-                mCardView.setY(pointF.y);
-            }
-        });
+        ObjectAnimator translationY = ObjectAnimator.ofFloat(view, "translationY", fromY, 0);
+        translationY.setInterpolator(new LinearInterpolator());
 
+        ObjectAnimator scaleX = ObjectAnimator.ofFloat(view, "scaleX", 1.0f, 0.7f);
+        scaleX.setInterpolator(new LinearInterpolator());
 
-        ValueAnimator animator2 = ValueAnimator.ofObject(new BezierEvaluator(),
-                new PointF(newX, newY),
-                new PointF(newX + rightX, newY + rightY));
-        animator2.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                PointF pointF = (PointF) animation.getAnimatedValue();
-                mCardView.setX(pointF.x);
-                mCardView.setY(pointF.y);
-            }
-        });
+        ObjectAnimator scaleY = ObjectAnimator.ofFloat(view, "scaleY", 1.0f, 0.7f);
+        scaleY.setInterpolator(new LinearInterpolator());
 
-        ObjectAnimator view1Anim = ObjectAnimator.ofFloat(mCardView, "rotation", 0, 30);
-        view1Anim.setInterpolator(new LinearInterpolator());
+        AnimatorSet animatorSet = new AnimatorSet();
+        animatorSet.setDuration(200);
+        animatorSet.playTogether(translationX, translationY, scaleX, scaleY);
+        animatorSet.start();
+    }
 
-        ObjectAnimator view2Anim = ObjectAnimator.ofFloat(mCardView, "rotation", 0, -10);
-        view2Anim.setInterpolator(new LinearInterpolator());
+    public static void zoomOutAnimator(View view, Animator.AnimatorListener listener) {
+        ObjectAnimator scaleX = ObjectAnimator.ofFloat(view, "scaleX", 1.0f, 0.7f);
+        scaleX.setInterpolator(new LinearInterpolator());
 
-        AnimatorSet set1 = new AnimatorSet();
-        animator1.setRepeatMode(ValueAnimator.REVERSE);
-        animator1.setInterpolator(new LinearInterpolator());
-        animator2.setRepeatMode(ValueAnimator.REVERSE);
-        animator2.setInterpolator(new LinearInterpolator());
+        ObjectAnimator scaleY = ObjectAnimator.ofFloat(view, "scaleY", 1.0f, 0.7f);
+        scaleY.setInterpolator(new LinearInterpolator());
 
-        AnimatorSet set2 = new AnimatorSet();
-        set2.play(animator2).with(view2Anim);
+        AnimatorSet animatorSet = new AnimatorSet();
+        animatorSet.setDuration(200);
+        animatorSet.playTogether(scaleX, scaleY);
+        animatorSet.addListener(listener);
+        animatorSet.start();
+    }
 
-        set1.play(animator1).with(view1Anim).before(set2);
-        set1.setDuration(1500);
-        set1.start();
+    public static void translateYToTopAnim(final View view, int toY, Animator.AnimatorListener listener) {
+        ObjectAnimator translationY = ObjectAnimator.ofFloat(view, "translationY", -toY);
+        translationY.setInterpolator(new LinearInterpolator());
+        translationY.setDuration(200);
+        translationY.addListener(listener);
+        translationY.start();
     }
 }
