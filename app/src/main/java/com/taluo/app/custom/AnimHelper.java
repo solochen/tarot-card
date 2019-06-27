@@ -86,7 +86,7 @@ public class AnimHelper {
 
         AnimatorSet animatorSet = new AnimatorSet();
         animatorSet.play(leftAnimator).with(rightAnimator);
-        animatorSet.setDuration(1000);
+        animatorSet.setDuration(1500);
         animatorSet.addListener(listener);
         animatorSet.start();
     }
@@ -106,7 +106,7 @@ public class AnimHelper {
         scaleY.setInterpolator(new LinearInterpolator());
 
         AnimatorSet animatorSet = new AnimatorSet();
-        animatorSet.setDuration(200);
+        animatorSet.setDuration(400);
         animatorSet.playTogether(translationX, translationY, scaleX, scaleY);
         animatorSet.start();
     }
@@ -119,7 +119,7 @@ public class AnimHelper {
         scaleY.setInterpolator(new LinearInterpolator());
 
         AnimatorSet animatorSet = new AnimatorSet();
-        animatorSet.setDuration(200);
+        animatorSet.setDuration(400);
         animatorSet.playTogether(scaleX, scaleY);
         animatorSet.addListener(listener);
         animatorSet.start();
@@ -128,7 +128,7 @@ public class AnimHelper {
     public static void translateYToTopAnim(final View view, int toY, Animator.AnimatorListener listener) {
         ObjectAnimator translationY = ObjectAnimator.ofFloat(view, "translationY", -toY);
         translationY.setInterpolator(new LinearInterpolator());
-        translationY.setDuration(200);
+        translationY.setDuration(400);
         translationY.addListener(listener);
         translationY.start();
     }
